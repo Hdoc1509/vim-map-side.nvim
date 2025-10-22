@@ -10,6 +10,7 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
   - `lhs` and `rhs` of `vim.keymap.set()` function
   - `rhs` expressions (currently supported):
     - `printf()`
+    - `v:` variables
 
 > [!NOTE]
 > More expressions will supported in the future.
