@@ -3,6 +3,14 @@
 Plugin that improves support for [Vim's
 map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 
+![lua injection](https://i.imgur.com/ftXsjMX.png)
+
+> Lua injection
+
+![vim injection](https://i.imgur.com/cPS7Jxr.png)
+
+> Vim injection
+
 ## Features
 
 - Syntax highlighting, thanks to [`tree-sitter-vim-map-side`][ts-vim-map-side],
@@ -13,7 +21,7 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
     - `v:` variables
 
 > [!NOTE]
-> More expressions will supported in the future.
+> More expressions will be supported in the future.
 
 ## Requirements
 
