@@ -19,6 +19,8 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
   - `rhs` that starts with `:`
   - `rhs` expressions
 
+> [!IMPORTANT]
+> Compatible with [`tree-sitter-vim-map-side@vX.X.X`][ts-vim-map-side-version]
 
 ## Requirements
 
@@ -75,6 +77,22 @@ use({
 })
 ```
 
+## Specific version of `tree-sitter-vim-map-side`
+
+Use the `revision` option of the `vim-map-side.tree-sitter` module:
+
+```lua
+require("vim-map-side.tree-sitter").setup({
+  revision = 'deploy-v0.1.0'
+})
+```
+
+Check the [General Installation of
+`tree-sitter-vim-map-side`][ts-vim-map-side-general] for more information.
+
+> [!NOTE]
+> Be sure to use any [compatible version](#features).
+
 ## Troubleshooting
 
 > [!IMPORTANT]
@@ -123,6 +141,8 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [ts-vim-map-side]: https://github.com/Hdoc1509/tree-sitter-vim-map-side
 [ts-vim-map-side-grammar]: https://github.com/hdoc1509/tree-sitter-vim-map-side/tree/master/grammar.js
 [ts-vim-map-side-queries]: https://github.com/hdoc1509/tree-sitter-vim-map-side/tree/master/queries
+[ts-vim-map-side-general]: https://github.com/Hdoc1509/tree-sitter-vim-map-side#in-general
+[ts-vim-map-side-version]: https://github.com/Hdoc1509/tree-sitter-vim-map-side/blob/master/CHANGELOG.md
 [lua]: https://github.com/tree-sitter-grammars/tree-sitter-lua
 [printf]: https://github.com/tree-sitter-grammars/tree-sitter-printf
 [vim]: https://github.com/tree-sitter-grammars/tree-sitter-vim
