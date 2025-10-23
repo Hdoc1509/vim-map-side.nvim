@@ -14,7 +14,7 @@ function M.setup(opts)
     install_info = {
       url = "https://github.com/Hdoc1509/tree-sitter-vim-map-side",
       files = { "src/parser.c" },
-      branch = "release",
+      revision = "release",
       requires_generate_from_grammar = opts.from_grammar,
     },
   }
