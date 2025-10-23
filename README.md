@@ -19,8 +19,6 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
   - `rhs` that starts with `:`
   - `rhs` expressions
 
-> [!NOTE]
-> More expressions will be supported in the future.
 
 ## Requirements
 
