@@ -16,9 +16,8 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 - Syntax highlighting, thanks to [`tree-sitter-vim-map-side`][ts-vim-map-side],
   for:
   - `lhs` and `rhs` of `vim.keymap.set()` function
-  - `rhs` expressions (currently supported):
-    - `printf()`
-    - `v:` variables
+  - `rhs` that starts with `:`
+  - `rhs` expressions
 
 > [!NOTE]
 > More expressions will be supported in the future.
