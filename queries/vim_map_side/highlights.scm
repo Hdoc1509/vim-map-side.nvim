@@ -7,14 +7,15 @@
     ">"
   ] @punctuation.bracket)
 
-; highlighting for <cmd> and : rhs. avoids ERROR nodes (corner cases)
-(map_side
-  [
-    "<"
-    ">"
-  ] @punctuation.bracket)
+; ":<c-u>" rhs
+(":" @punctuation.delimiter
+  .
+  (keycode))
 
-"|" @operator
+[
+  "|"
+  (bar)
+] @operator
 
 "\\|" @string.escape
 
