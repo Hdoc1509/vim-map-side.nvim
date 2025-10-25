@@ -21,7 +21,8 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 
 - `Neovim >= 0.9.0`
 - [`nvim-treesitter`][nvim-treesitter]
-- [`lua` parser][lua]: injection to `lhs` and `rhs` of `vim.keymap.set()` function
+- [`lua` parser][lua]: injection to `lhs` and `rhs` of `vim.keymap.set()`,
+  `vim.api.nvim_set_keymap()` and `vim.api.nvim_buf_set_keymap()` functions
 - [`printf` parser][printf] (optional): for `printf()` expression
 - [`vim` parser][vim] (optional): for `rhs` that starts with `:` and `command`
   nodes of `tree-siter-vim-map-side`
