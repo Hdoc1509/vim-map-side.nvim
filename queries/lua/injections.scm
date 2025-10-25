@@ -1,21 +1,56 @@
 ; extends
 
-; NOTE: for lhs
+; NOTE: for lhs and rhs
 (function_call
-  name: (dot_index_expression) @_fn
-  arguments: (arguments
-    .
-    (_) ; -- mode --
-    .
-    (string
-      (string_content) @injection.content))
-  (#eq? @_fn "vim.keymap.set")
+  name: (_) @_fn
+  arguments: [
+    (arguments
+      .
+      (_) ; -- mode --
+      .
+      (string
+        (string_content) @injection.content))
+    (arguments
+      .
+      (_) ; -- mode --
+      .
+      (_) ; -- lhs --
+      (string
+        (string_content) @injection.content))
+  ]
+  ; TODO: use is-keymap-fn? predicate
+  (#any-of? @_fn "vim.keymap.set" "vim.api.nvim_set_keymap")
   (#lua-match? @injection.content "<.+>")
   (#set! injection.language "vim_map_side"))
 
-; NOTE: for general rhs
 (function_call
-  name: (dot_index_expression) @_fn
+  name: (_) @_fn
+  arguments: [
+    (arguments
+      .
+      (_) ; -- buffer --
+      .
+      (_) ; -- mode --
+      .
+      (string
+        (string_content) @injection.content))
+    (arguments
+      .
+      (_) ; -- buffer --
+      .
+      (_) ; -- mode --
+      .
+      (_) ; -- lhs --
+      (string
+        (string_content) @injection.content))
+  ]
+  (#eq? @_fn "vim.api.nvim_buf_set_keymap")
+  (#lua-match? @injection.content "<.+>")
+  (#set! injection.language "vim_map_side"))
+
+; NOTE: for `:` rhs without <cr>
+(function_call
+  name: (_) @_fn
   arguments: (arguments
     .
     (_) ; -- mode --
@@ -24,14 +59,16 @@
     .
     (string
       (string_content) @injection.content))
-  (#eq? @_fn "vim.keymap.set")
-  (#lua-match? @injection.content "<.+>")
+  (#any-of? @_fn "vim.keymap.set" "vim.api.nvim_set_keymap")
+  (#not-lua-match? @injection.content "<.+>")
+  (#lua-match? @injection.content "^:")
   (#set! injection.language "vim_map_side"))
 
-; NOTE: for `:` rhs without keycode
 (function_call
-  name: (dot_index_expression) @_fn
+  name: (_) @_fn
   arguments: (arguments
+    .
+    (_) ; -- buffer --
     .
     (_) ; -- mode --
     .
@@ -39,14 +76,14 @@
     .
     (string
       (string_content) @injection.content))
-  (#eq? @_fn "vim.keymap.set")
+  (#eq? @_fn "vim.api.nvim_buf_set_keymap")
   (#not-lua-match? @injection.content "<.+>")
   (#lua-match? @injection.content "^:")
   (#set! injection.language "vim_map_side"))
 
 ; NOTE: for expressions as rhs
 (function_call
-  name: (dot_index_expression) @_fn
+  name: (_) @_fn
   arguments: (arguments
     .
     (_) ; -- mode --
@@ -57,7 +94,27 @@
       (string_content) @injection.content)
     .
     (table_constructor) @_options)
-  (#eq? @_fn "vim.keymap.set")
+  (#any-of? @_fn "vim.keymap.set" "vim.api.nvim_set_keymap")
+  ; NOTE: to avoid double injection
+  (#not-lua-match? @injection.content "<.+>")
+  (#lua-match? @_options "expr%s*=%s*true")
+  (#set! injection.language "vim_map_side"))
+
+(function_call
+  name: (_) @_fn
+  arguments: (arguments
+    .
+    (_) ; -- buffer --
+    .
+    (_) ; -- mode --
+    .
+    (_) ; -- lhs --
+    .
+    (string
+      (string_content) @injection.content)
+    .
+    (table_constructor) @_options)
+  (#eq? @_fn "vim.api.nvim_buf_set_keymap")
   ; NOTE: to avoid double injection
   (#not-lua-match? @injection.content "<.+>")
   (#lua-match? @_options "expr%s*=%s*true")
