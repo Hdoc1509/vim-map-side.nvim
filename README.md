@@ -13,14 +13,9 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 
 ## Features
 
-- Syntax highlighting, thanks to [`tree-sitter-vim-map-side`][ts-vim-map-side],
-  for:
-  - `lhs` and `rhs` of `vim.keymap.set()` function
-  - `rhs` that starts with `:`
-  - `rhs` expressions
-
-> [!IMPORTANT]
-> Compatible with [`tree-sitter-vim-map-side@vX.X.X`][ts-vim-map-side-version]
+- Syntax highlighting of `lhs` and `rhs` thanks to
+  [`tree-sitter-vim-map-side`][ts-vim-map-side]. Compatible with
+  [^beb2a51][ts-vim-map-side-version]
 
 ## Requirements
 
@@ -142,7 +137,7 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [ts-vim-map-side-grammar]: https://github.com/hdoc1509/tree-sitter-vim-map-side/tree/master/grammar.js
 [ts-vim-map-side-queries]: https://github.com/hdoc1509/tree-sitter-vim-map-side/tree/master/queries
 [ts-vim-map-side-general]: https://github.com/Hdoc1509/tree-sitter-vim-map-side#in-general
-[ts-vim-map-side-version]: https://github.com/Hdoc1509/tree-sitter-vim-map-side/blob/master/CHANGELOG.md
+[ts-vim-map-side-version]: https://github.com/Hdoc1509/tree-sitter-vim-map-side/commit/950bccaa82faa30372483e585186f1e41d5e9aad
 [lua]: https://github.com/tree-sitter-grammars/tree-sitter-lua
 [printf]: https://github.com/tree-sitter-grammars/tree-sitter-printf
 [vim]: https://github.com/tree-sitter-grammars/tree-sitter-vim
