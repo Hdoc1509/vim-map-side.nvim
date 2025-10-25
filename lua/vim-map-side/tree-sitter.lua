@@ -24,6 +24,7 @@ function M.setup(opts)
       revision = opts.revision,
       requires_generate_from_grammar = opts.from_grammar,
     },
+    filetype = "vms",
   }
 end
 
