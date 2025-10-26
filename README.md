@@ -16,6 +16,8 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 - Syntax highlighting of `lhs` and `rhs` thanks to
   [`tree-sitter-vim-map-side`][ts-vim-map-side]. Compatible with
   [^beb2a51][ts-vim-map-side-version]
+- [New predicate](#is-keymap-fn-predicate) with its [LSP
+  configuration](#lsp-configuration)
 
 ## Requirements
 
@@ -84,6 +86,17 @@ use({
   revision = "release", -- specific version of `tree-sitter-vim-map-side`
 }
 ```
+
+## `is-keymap-fn?` predicate
+
+Check if the captured node is a function call that is a keymap function:
+
+- `vim.keymap.set()`
+- `vim.api.nvim_set_keymap()`
+
+## LSP configuration
+
+WIP
 
 ## Specific version of `tree-sitter-vim-map-side`
 

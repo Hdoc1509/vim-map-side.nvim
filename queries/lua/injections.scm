@@ -1,6 +1,6 @@
 ; extends
 
-; NOTE: for lhs and rhs
+; === lhs and rhs ===
 (function_call
   name: (_) @_fn
   arguments: [
@@ -17,8 +17,7 @@
       (string
         (string_content) @injection.content))
   ]
-  ; TODO: use is-keymap-fn? predicate
-  (#any-of? @_fn "vim.keymap.set" "vim.api.nvim_set_keymap")
+  (#is-keymap-fn? @_fn)
   (#lua-match? @injection.content "<%S+>")
   (#set! injection.language "vim_map_side"))
 
@@ -44,7 +43,7 @@
   (#lua-match? @injection.content "<%S+>")
   (#set! injection.language "vim_map_side"))
 
-; NOTE: for `:` rhs without <cr>
+; === `:` rhs without <cr> ===
 (function_call
   name: (_) @_fn
   ; format-ignore
@@ -54,8 +53,7 @@
     .
     (string
       (string_content) @injection.content))
-  ; TODO: use is-keymap-fn? predicate
-  (#any-of? @_fn "vim.keymap.set" "vim.api.nvim_set_keymap")
+  (#is-keymap-fn? @_fn)
   (#lua-match? @injection.content "^:")
   (#not-lua-match? @injection.content "<cr>")
   (#set! injection.language "vim"))
@@ -75,7 +73,7 @@
   (#not-lua-match? @injection.content "<cr>")
   (#set! injection.language "vim"))
 
-; NOTE: for expressions as rhs
+; === expressions as rhs ===
 (function_call
   name: (_) @_fn
   ; format-ignore
@@ -87,8 +85,7 @@
       (string_content) @injection.content)
     .
     (table_constructor) @_options)
-  ; TODO: use is-keymap-fn? predicate
-  (#any-of? @_fn "vim.keymap.set" "vim.api.nvim_set_keymap")
+  (#is-keymap-fn? @_fn)
   ; NOTE: to avoid double injection
   (#not-lua-match? @injection.content "<%S+>")
   (#lua-match? @_options "expr%s*=%s*true")

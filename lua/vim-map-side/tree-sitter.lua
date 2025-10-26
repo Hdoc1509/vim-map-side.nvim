@@ -1,5 +1,10 @@
 local M = {}
 
+-- see changed features in treesitter section
+-- https://neovim.io/doc/user/news-0.10.html#_changed-features
+local has_v_0_10 = vim.fn.has("nvim-0.10") == 1
+local predicate_options = has_v_0_10 and {} or nil
+
 ---@class VimMapSideOpts
 ---@field from_grammar? boolean -- whether to install from `grammar.js`
 ---@field revision? string -- specific version of `tree-sitter-vim-map-side`
@@ -9,6 +14,7 @@ local default_opts = {
   from_grammar = false,
   revision = "release",
 }
+local keymap_fns = { "vim.keymap.set", "vim.api.nvim_set_keymap" }
 
 ---@param opts? VimMapSideOpts
 function M.setup(opts)
@@ -26,6 +32,22 @@ function M.setup(opts)
     },
     filetype = "vms",
   }
+
+  vim.treesitter.query.add_predicate(
+    "is-keymap-fn?",
+    function(match, _, bufnr, pred)
+      local node = match[pred[2]]
+      if node == nil then
+        return false
+      end
+
+      local fn_text = vim.treesitter.get_node_text(node, bufnr)
+
+      return vim.tbl_contains(keymap_fns, fn_text)
+    end,
+    ---@diagnostic disable-next-line: param-type-mismatch
+    predicate_options
+  )
 end
 
 return M
