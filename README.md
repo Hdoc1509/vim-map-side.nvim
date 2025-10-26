@@ -84,6 +84,10 @@ use({
 {
   from_grammar = false, -- whether to install from `grammar.js`
   revision = "release", -- specific version of `tree-sitter-vim-map-side`
+  custom_fns = {
+    -- custom functions with same parameters of `vim.keymap.set()`
+    keymap = {},
+  },
 }
 ```
 
@@ -93,6 +97,8 @@ Check if the captured node is a function call that is a keymap function:
 
 - `vim.keymap.set()`
 - `vim.api.nvim_set_keymap()`
+- custom functions defined in `custom_fns.keymap` of [`vim-map-side.tree-sitter`
+  setup](#vim-map-sidetree-sitter-setup)
 
 ## LSP configuration
 
