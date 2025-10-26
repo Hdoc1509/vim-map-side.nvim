@@ -73,6 +73,18 @@ use({
 })
 ```
 
+## Default configuration
+
+### `vim-map-side.tree-sitter` setup
+
+```lua
+---@type VimMapSideOpts
+{
+  from_grammar = false, -- whether to install from `grammar.js`
+  revision = "release", -- specific version of `tree-sitter-vim-map-side`
+}
+```
+
 ## Specific version of `tree-sitter-vim-map-side`
 
 Use the `revision` option of the `vim-map-side.tree-sitter` module:

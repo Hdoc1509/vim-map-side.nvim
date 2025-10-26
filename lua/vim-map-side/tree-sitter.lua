@@ -1,8 +1,8 @@
 local M = {}
 
 ---@class VimMapSideOpts
----@field from_grammar? boolean
----@field revision? string
+---@field from_grammar? boolean -- whether to install from `grammar.js`
+---@field revision? string -- specific version of `tree-sitter-vim-map-side`
 
 ---@type VimMapSideOpts
 local default_opts = {
