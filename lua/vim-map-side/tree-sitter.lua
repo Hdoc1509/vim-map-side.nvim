@@ -6,11 +6,11 @@ local has_v_0_10 = vim.fn.has("nvim-0.10") == 1
 local predicate_options = has_v_0_10 and {} or nil
 
 ---@class VimMapSideOpts.CustomFns
----@field keymap? string[] -- custom functions with same parameters of `vim.keymap.set()`
+---@field keymap? string[] custom functions with same parameters of `vim.keymap.set()`
 
 ---@class VimMapSideOpts
----@field from_grammar? boolean -- whether to install from `grammar.js`
----@field revision? string -- specific version of `tree-sitter-vim-map-side`
+---@field from_grammar? boolean whether to install from `grammar.js`
+---@field revision? string specific version of `tree-sitter-vim-map-side`
 ---@field custom_fns? VimMapSideOpts.CustomFns
 
 ---@type VimMapSideOpts
