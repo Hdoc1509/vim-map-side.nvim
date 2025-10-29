@@ -123,8 +123,8 @@ Check the [General Installation of
 ## Troubleshooting
 
 > [!IMPORTANT]
-> Be sure to run `:checkhealth vim.treesitter` before checking the following
-> errors.
+> Be sure to run `:checkhealth vim.treesitter` and
+> `:checkhealth nvim-treesitter` before checking the following errors.
 
 ### Incompatible ABI version
 
