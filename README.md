@@ -82,8 +82,11 @@ use({
 ```lua
 ---@type VimMapSideOpts
 {
-  from_grammar = false, -- whether to install from `grammar.js`
-  revision = "release", -- specific version of `tree-sitter-vim-map-side`
+  -- whether to install from `grammar.js`
+  from_grammar = false,
+  -- specific version of `tree-sitter-vim-map-side`:
+  -- <branch-name>, <release-version> or <commit-hash>
+  revision = nil,
   custom_fns = {
     -- custom functions with same parameters of `vim.keymap.set()`
     keymap = {},
@@ -103,22 +106,6 @@ Check if the captured node is a function call that is a keymap function:
 ## LSP configuration
 
 WIP
-
-## Specific version of `tree-sitter-vim-map-side`
-
-Use the `revision` option of the `vim-map-side.tree-sitter` module:
-
-```lua
-require("vim-map-side.tree-sitter").setup({
-  revision = 'deploy-v0.1.0'
-})
-```
-
-Check the [General Installation of
-`tree-sitter-vim-map-side`][ts-vim-map-side-general] for more information.
-
-> [!NOTE]
-> Be sure to use any [compatible version](#features).
 
 ## Troubleshooting
 
@@ -168,7 +155,6 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [ts-vim-map-side]: https://github.com/Hdoc1509/tree-sitter-vim-map-side
 [ts-vim-map-side-grammar]: https://github.com/hdoc1509/tree-sitter-vim-map-side/tree/master/grammar.js
 [ts-vim-map-side-queries]: https://github.com/hdoc1509/tree-sitter-vim-map-side/tree/master/queries
-[ts-vim-map-side-general]: https://github.com/Hdoc1509/tree-sitter-vim-map-side#in-general
 [ts-vim-map-side-version]: https://github.com/Hdoc1509/tree-sitter-vim-map-side/commit/950bccaa82faa30372483e585186f1e41d5e9aad
 [lua]: https://github.com/tree-sitter-grammars/tree-sitter-lua
 [printf]: https://github.com/tree-sitter-grammars/tree-sitter-printf

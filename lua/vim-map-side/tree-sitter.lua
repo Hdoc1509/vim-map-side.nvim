@@ -16,7 +16,7 @@ local predicate_options = has_v_0_10 and {} or nil
 ---@type VimMapSideOpts
 local default_opts = {
   from_grammar = false,
-  revision = "release",
+  revision = nil,
   custom_fns = { keymap = {} },
 }
 local keymap_fns = { "vim.keymap.set", "vim.api.nvim_set_keymap" }
