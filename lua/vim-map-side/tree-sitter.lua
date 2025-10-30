@@ -9,10 +9,10 @@ local M = {}
 
 -- see changed features in treesitter section
 -- https://neovim.io/doc/user/news-0.10.html#_changed-features
-local has_v_0_10 = vim.fn.has("nvim-0.10") == 1
-local predicate_options = has_v_0_10 and {} or nil
+local has_0_10 = vim.fn.has("nvim-0.10") == 1
+local predicate_options = has_0_10 and {} or nil
 
-local has_v_0_11 = vim.fn.has("nvim-0.11") == 1
+local has_0_11 = vim.fn.has("nvim-0.11") == 1
 
 ---@class VimMapSideOpts.CustomFns
 ---@field keymap? string[] custom functions with same parameters of `vim.keymap.set()`
@@ -137,7 +137,7 @@ function M.setup(opts)
     (#set! injection.language "vim_map_side"))
   ]]
 
-  if has_v_0_11 then
+  if has_0_11 then
     -- see new features in treesiter section
     -- https://neovim.io/doc/user/news-0.11.html#_new-features
     -- https://neovim.io/doc/user/treesitter.html#vim.treesitter.query.set()
