@@ -117,7 +117,63 @@ These functions have the same parameters of `vim.keymap.set()` except the first:
 
 ## LSP configuration
 
-WIP
+The `ts-query-ls` module exports an LSP configuration for `ts_query_ls` server
+in order to register the custom predicates used by this plugin.
+
+> [!NOTE]
+> This is only needed if you will use the predicates defined by this plugin in
+> your queries.
+
+### [nvim-lspconfig][lspconfig] + neovim < 0.11
+
+> [!IMPORTANT]
+> Be sure to set `vim-map-side.nvim` as a dependency
+
+```lua
+local lspconfig = require('lspconfig')
+local vim_map_side = require('vim-map-side.ts-query-ls')
+
+lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
+  -- your settings
+}, vim_map_side))
+```
+
+### [vim.lsp.config][vim-lsp-config] + neovim >= 0.11
+
+<!-- TODO: need to check if it works correctlty -->
+
+> [!IMPORTANT]
+> Be sure to load `vim-map-side.nvim` before
+
+```lua
+local vim_map_side = require('vim-map-side.ts-query-ls')
+
+vim.lsp.config('ts_query_ls', vim.tbl_deep_extend('force', {
+  -- your settings
+}, vim_map_side))
+vim.lsp.enable('ts_query_ls')
+```
+
+### `<rtp>/lsp/ts_query_ls.lua` + neovim >= 0.11
+
+<!-- TODO: need to check if it works correctlty -->
+
+> [!IMPORTANT]
+> Be sure to load `vim-map-side.nvim` before
+
+```lua
+local vim_map_side = require('vim-map-side.ts-query-ls')
+
+return vim.tbl_deep_extend('force', {
+  -- your settings
+}, vim_map_side)
+```
+
+Then, in your `init.lua`:
+
+```lua
+vim.lsp.enable('ts_query_ls')
+```
 
 ## Troubleshooting
 
@@ -174,3 +230,5 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
 [nodejs]: https://nodejs.org/en/download
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
+[lspconfig]: (https://github.com/neovim/nvim-lspconfig)
+[vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
