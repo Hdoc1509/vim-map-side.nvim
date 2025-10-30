@@ -14,16 +14,16 @@ local predicate_options = has_0_10 and {} or nil
 
 local has_0_11 = vim.fn.has("nvim-0.11") == 1
 
----@class VimMapSideOpts.CustomFns
+---@class VimMapSide.TSOpts.CustomFns
 ---@field keymap? string[] custom functions with same parameters of `vim.keymap.set()`
 ---@field modemap? string[] same functions as `keymap` option but without first parameter (`mode`)
 
----@class VimMapSideOpts
+---@class VimMapSide.TSOpts
 ---@field from_grammar? boolean whether to install from `grammar.js`
 ---@field revision? string specific version of `tree-sitter-vim-map-side`
----@field custom_fns? VimMapSideOpts.CustomFns
+---@field custom_fns? VimMapSide.TSOpts.CustomFns
 
----@type VimMapSideOpts
+---@type VimMapSide.TSOpts
 local default_opts = {
   from_grammar = false,
   revision = nil,
@@ -32,7 +32,7 @@ local default_opts = {
 local keymap_fns = { "vim.keymap.set", "vim.api.nvim_set_keymap" }
 local modemap_fns = {}
 
----@param opts? VimMapSideOpts
+---@param opts? VimMapSide.TSOpts
 function M.setup(opts)
   opts = vim.tbl_deep_extend("force", default_opts, opts or {})
   vim.list_extend(keymap_fns, opts.custom_fns.keymap)
