@@ -89,6 +89,8 @@ use({
   custom_fns = {
     -- custom functions with same parameters of `vim.keymap.set()`
     keymap = {},
+    -- same functions as `keymap` but without first parameter (`mode`)
+    modemap = {},
   },
 }
 ```
@@ -105,6 +107,13 @@ Check if the captured node is a function call that is a keymap function:
   setup](#vim-map-sidetree-sitter-setup)
 
 ### `is-modemap-fn?` predicate
+
+Check if the captured node is a function call that is a modemap function defined
+in `custom_fns.modemap` of [`vim-map-side.tree-sitter`
+setup](#vim-map-sidetree-sitter-setup).
+
+These functions have the same parameters of `vim.keymap.set()` except the first:
+`mode` parameter.
 
 ## LSP configuration
 
