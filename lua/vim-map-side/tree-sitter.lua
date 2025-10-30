@@ -20,6 +20,7 @@ local default_opts = {
   custom_fns = { keymap = {} },
 }
 local keymap_fns = { "vim.keymap.set", "vim.api.nvim_set_keymap" }
+local modemap_fns = {}
 
 ---@param opts? VimMapSideOpts
 function M.setup(opts)
@@ -50,6 +51,22 @@ function M.setup(opts)
       local fn_text = vim.treesitter.get_node_text(node, bufnr)
 
       return vim.tbl_contains(keymap_fns, fn_text)
+    end,
+    ---@diagnostic disable-next-line: param-type-mismatch
+    predicate_options
+  )
+
+  vim.treesitter.query.add_predicate(
+    "is-modemap-fn?",
+    function(match, _, bufnr, pred)
+      local node = match[pred[2]]
+      if node == nil then
+        return
+      end
+
+      local fn_text = vim.treesitter.get_node_text(node, bufnr)
+
+      return vim.tbl_contains(modemap_fns, fn_text)
     end,
     ---@diagnostic disable-next-line: param-type-mismatch
     predicate_options

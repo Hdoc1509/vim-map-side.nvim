@@ -16,15 +16,14 @@ map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 - Syntax highlighting of `lhs` and `rhs` thanks to
   [`tree-sitter-vim-map-side`][ts-vim-map-side]. Compatible with
   [^0.1.0][ts-vim-map-side-version]
-- [New predicate](#is-keymap-fn-predicate) with its [LSP
-  configuration](#lsp-configuration)
+- [New predicates](#new-predicates) with [LSP configuration](#lsp-configuration)
 
 ## Requirements
 
 - `Neovim >= 0.9.0`
 - [`nvim-treesitter`][nvim-treesitter]
 - [`lua` parser][lua]: injection to `lhs` and `rhs` of [keymap
-  functions](#is-keymap-fn-predicate)
+  functions](#new-predicates)
 - [`printf` parser][printf] (optional): for `printf()` expression
 - [`vim` parser][vim] (optional): for `rhs` that starts with `:` and `command`
   nodes of `tree-siter-vim-map-side`
@@ -94,7 +93,9 @@ use({
 }
 ```
 
-## `is-keymap-fn?` predicate
+## New predicates
+
+### `is-keymap-fn?` predicate
 
 Check if the captured node is a function call that is a keymap function:
 
@@ -102,6 +103,8 @@ Check if the captured node is a function call that is a keymap function:
 - `vim.api.nvim_set_keymap()`
 - custom functions defined in `custom_fns.keymap` of [`vim-map-side.tree-sitter`
   setup](#vim-map-sidetree-sitter-setup)
+
+### `is-modemap-fn?` predicate
 
 ## LSP configuration
 
