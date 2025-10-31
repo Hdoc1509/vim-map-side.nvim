@@ -158,9 +158,6 @@ vim.lsp.enable('ts_query_ls')
 
 <!-- TODO: need to check if it works correctlty -->
 
-> [!IMPORTANT]
-> Be sure to load `vim-map-side.nvim` before
-
 ```lua
 local vim_map_side = require('vim-map-side.ts-query-ls')
 
@@ -168,6 +165,11 @@ return vim.tbl_deep_extend('force', {
   -- your settings
 }, vim_map_side)
 ```
+
+> [!IMPORTANT]
+> Be sure to load `vim-map-side.nvim` before calling `vim.lsp.enable()`
+>
+> See [LSP config merge](https://neovim.io/doc/user/lsp.html#lsp-config-merge)
 
 Then, in your `init.lua`:
 
