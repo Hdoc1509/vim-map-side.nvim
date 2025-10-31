@@ -3,11 +3,11 @@
 Plugin that improves support for [Vim's
 map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
 
-![lua injection](https://i.imgur.com/ftXsjMX.png)
+![lua injection](https://i.imgur.com/MFdLVa4.png)
 
 > Lua injection
 
-![vim injection](https://i.imgur.com/cPS7Jxr.png)
+![vim injection](https://i.imgur.com/lqJEFDG.png)
 
 > Vim injection
 
