@@ -21,8 +21,7 @@ function M.setup(opts)
   opts = vim.tbl_deep_extend("force", default_opts, opts or {})
 
   require("vim-map-side.tree-sitter.parser-config").setup(opts)
-  require("vim-map-side.tree-sitter.predicates.keymap-fn").setup(opts)
-  require("vim-map-side.tree-sitter.predicates.modemap-fn").setup(opts)
+  require('vim-map-side.tree-sitter.predicates').setup(opts)
 end
 
 return M
