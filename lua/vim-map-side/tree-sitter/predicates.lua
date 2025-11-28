@@ -25,7 +25,7 @@ local predicates = {
   end,
 }
 
----@param opts VimMapSide.TSOpts
+---@param opts VimMapSide.TS.Opts
 local function setup(opts)
   local predicate_options = require("vim-map-side.compat").predicate_options
 

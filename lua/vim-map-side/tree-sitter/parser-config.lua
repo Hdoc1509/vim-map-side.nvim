@@ -1,4 +1,4 @@
----@param opts VimMapSide.TSOpts
+---@param opts VimMapSide.TS.Opts
 local function setup(opts)
   local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 

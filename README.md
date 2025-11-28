@@ -79,7 +79,7 @@ use({
 ### `vim-map-side.tree-sitter` setup
 
 ```lua
----@type VimMapSideOpts
+---@type VimMapSide.TS.Opts
 {
   -- whether to install from `grammar.js`
   from_grammar = false,
