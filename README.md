@@ -1,7 +1,7 @@
 # vim-map-side.nvim
 
-Plugin that improves support for [Vim's
-map](https://vimhelp.org/map.txt.html#map.txt) side (`lhs` and `rhs`) in Neovim.
+Plugin that improves support for [Vim'smap][vimhelp-map] side (`lhs` and `rhs`)
+in Neovim.
 
 ![lua injection](https://i.imgur.com/UrRtF5R.png)
 
@@ -233,4 +233,5 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [nodejs]: https://nodejs.org/en/download
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
 [lspconfig]: (https://github.com/neovim/nvim-lspconfig)
+[vimhelp-map]: https://vimhelp.org/map.txt.html#map.txt
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
