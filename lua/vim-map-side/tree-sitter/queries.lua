@@ -1,30 +1,5 @@
-local modemap_fns = {}
-
----@param opts VimMapSide.TSOpts
-local function setup(opts)
+local function setup()
   local compat = require("vim-map-side.compat")
-
-  vim.list_extend(modemap_fns, opts.custom_fns.modemap)
-
-  if #modemap_fns == 0 then
-    return
-  end
-
-  vim.treesitter.query.add_predicate(
-    "is-modemap-fn?",
-    function(match, _, bufnr, pred)
-      local node = match[pred[2]]
-      if node == nil then
-        return
-      end
-
-      local fn_text = vim.treesitter.get_node_text(node, bufnr)
-
-      return vim.tbl_contains(modemap_fns, fn_text)
-    end,
-    ---@diagnostic disable-next-line: param-type-mismatch
-    compat.predicate_options
-  )
 
   local injection_query = ""
 
@@ -38,7 +13,7 @@ local function setup(opts)
     -- https://github.com/MeanderingProgrammer/render-markdown.nvim/blob/10126effbafb74541b69219711dfb2c631e7ebf8/lua/render-markdown/core/ts.lua#L56-L69
     local files = vim.treesitter.query.get_files("lua", "injections")
     local modemap_query_path =
-      vim.treesitter.query.get_files("vms_modemap_fn", "injections")
+      vim.treesitter.query.get_files("vms_modemap_fn", "injections")[1]
 
     for _, file in ipairs(files) do
       local f = assert(io.open(file, "r"))
@@ -48,7 +23,7 @@ local function setup(opts)
       injection_query = injection_query .. body .. "\n"
     end
 
-    local modemap_query_file = assert(io.open(modemap_query_path[1], "r"))
+    local modemap_query_file = assert(io.open(modemap_query_path, "r"))
     local modemap_query = modemap_query_file:read("*a") --[[@as string]]
 
     modemap_query_file:close()
