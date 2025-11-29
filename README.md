@@ -25,8 +25,8 @@ in Neovim.
 - [`lua` parser][lua]: injection to `lhs` and `rhs` of [keymap
   functions](#new-predicates)
 - [`printf` parser][printf] (optional): for `printf()` expression
-- [`vim` parser][vim] (optional): for `rhs` that starts with `:` and `command`
-  nodes of `tree-siter-vim-map-side`
+- [`vim` parser][vim]: for `rhs` that starts with `:` and `command` nodes of
+  `tree-siter-vim-map-side`
 
 ## Install
 
@@ -52,7 +52,7 @@ Installation examples for [`lazy.nvim`](https://github.com/folke/lazy.nvim) and
     require("nvim-treesitter").install({
       "lua", -- required
       "printf", -- optional
-      "vim", -- optional
+      "vim", -- required
       "vim_map_side", -- required
     })
   end,
@@ -91,7 +91,7 @@ Use `install` module instead:
     require("nvim-treesitter.install").install({
       "lua", -- required
       "printf", -- optional
-      "vim", -- optional
+      "vim", -- required
       "vim_map_side", -- required
     })
   end,
@@ -127,7 +127,7 @@ Use `install` module instead:
       ensure_installed = {
         "lua", -- required
         "printf", -- optional
-        "vim", -- optional
+        "vim", -- required
         "vim_map_side", -- required
       }
     })
@@ -162,7 +162,7 @@ Use `install` module instead:
       ensure_installed = {
         "lua", -- required
         "printf", -- optional
-        "vim", -- optional
+        "vim", -- required
         "vim_map_side", -- required
       }
     })
