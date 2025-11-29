@@ -184,15 +184,20 @@ Use `install` module instead:
 ```lua
 ---@type VimMapSide.TS.Opts
 {
-  -- whether to install from `grammar.js`
-  from_grammar = false,
-  -- specific version of `tree-sitter-vim-map-side`:
-  -- <branch-name>, <release-version> or <commit-hash>
+  -- Whether to `generate` files from the grammar before building it.
+  from_grammar = nil,
+  -- Path to local `tree-sitter-vim-map-side`.
+  path = nil,
+  -- Remote URL to `tree-sitter-vim-map-side`.
+  url = "https://github.com/Hdoc1509/tree-sitter-vim-map-side",
+  -- Version or commit of `tree-sitter-vim-map-side`.
   revision = nil,
+  -- Branch of `tree-sitter-vim-map-side`.
+  branch = nil,
   custom_fns = {
-    -- custom functions with same parameters of `vim.keymap.set()`
+    -- custom functions with same parameters of `vim.keymap.set()`.
     keymap = {},
-    -- same functions as `keymap` but without first parameter (`mode`)
+    -- same functions as `keymap` but without first parameter (`mode`).
     modemap = {},
   },
 }
