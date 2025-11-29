@@ -1,33 +1,33 @@
+local compat = require("vim-map-side.compat")
+
 local keymap_fns = { "vim.keymap.set", "vim.api.nvim_set_keymap" }
 local modemap_fns = {}
 
 ---@type table<string, TSPredicate?>
 local predicates = {
-  ["is-keymap-fn?"] = function(match, _, bufnr, pred)
-    local node = match[pred[2]]
+  ["is-keymap-fn?"] = function(match, _, src, pred)
+    local node = compat.get_node(2, match, pred)
     if node == nil then
       return false
     end
 
-    local fn_text = vim.treesitter.get_node_text(node, bufnr)
-
+    local fn_text = vim.treesitter.get_node_text(node, src)
     return vim.tbl_contains(keymap_fns, fn_text)
   end,
-  ["is-modemap-fn?"] = function(match, _, bufnr, pred)
-    local node = match[pred[2]]
+  ["is-modemap-fn?"] = function(match, _, src, pred)
+    local node = compat.get_node(2, match, pred)
     if node == nil then
       return false
     end
 
-    local fn_text = vim.treesitter.get_node_text(node, bufnr)
-
+    local fn_text = vim.treesitter.get_node_text(node, src)
     return vim.tbl_contains(modemap_fns, fn_text)
   end,
 }
 
 ---@param opts VimMapSide.TS.Opts
 local function setup(opts)
-  local predicate_options = require("vim-map-side.compat").predicate_options
+  local predicate_options = compat.predicate_options
 
   vim.list_extend(keymap_fns, opts.custom_fns.keymap)
   vim.list_extend(modemap_fns, opts.custom_fns.modemap)
