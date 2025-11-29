@@ -10,9 +10,9 @@ local function setup(opts)
   }
   local parser_info = {
     install_info = install_info,
-    -- TODO: add `maintainers` and `tier` fields. check these for `tier`:
-    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4767
-    -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
+    -- TODO: add `maintainers`
+    -- NOTE: because grammar is not stable enough. changes are expected
+    tier = 3,
   }
 
   if ts_parsers.get_parser_configs ~= nil then
