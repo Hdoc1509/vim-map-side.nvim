@@ -10,7 +10,7 @@ local function setup(opts)
   }
   local parser_info = {
     install_info = install_info,
-    -- TODO: add `maintainers`
+    maintainers = { "@Hdoc1509" },
     -- NOTE: because grammar is not stable enough. changes are expected
     tier = 3,
   }
