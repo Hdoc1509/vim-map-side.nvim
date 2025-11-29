@@ -1,6 +1,6 @@
 # vim-map-side.nvim
 
-Plugin that improves support for [Vim'smap][vimhelp-map] side (`lhs` and `rhs`)
+Plugin that improves support for [Vim's map][vimhelp-map] side (`lhs` and `rhs`)
 in Neovim.
 
 ![lua injection](https://i.imgur.com/UrRtF5R.png)
