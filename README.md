@@ -311,17 +311,18 @@ If you found the following error:
    - [`Node.js`][nodejs]
    - [`tree-sitter cli`][tree-sitter-cli]
 
-2. Add the `from_grammar` option to the `setup` function of the
-   `vim-map-side.tree-sitter` module:
+2. Run `:TSInstallFromGrammar vim_map_side` to re-install the parser with the
+   correct ABI version.
 
-   ```lua
-   require("vim-map-side.tree-sitter").setup({ from_grammar = true })
-   ```
+It's also recommended to add the `from_grammar` option to the `setup` function
+of the `tree-sitter` module in order to avoid the need to run
+`:TSInstallFromGrammar` every time `nvim-treesitter` is updated:
 
-3. Reload your neovim config.
-
-4. Run `:TSInstall vim_map_side` to re-install the parser with the correct ABI
-   version.
+```lua
+require("vim-map-side.tree-sitter").setup({
+  from_grammar = true
+})
+```
 
 ## Updates
 
