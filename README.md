@@ -100,43 +100,6 @@ Use `install` module instead:
 
 </details>
 
-#### `configs` module of old [`main`][nvim-ts-main-configs] branch
-
-> [!IMPORTANT]
-> This snippet is for neovim >= 0.9.0.
-
-<details>
-  <summary>Installation example</summary>
-
-```lua
-{
-  "nvim-treesitter/nvim-treesitter",
-  lazy = false, -- if using `lazy.nvim`
-  branch = 'main',
-  -- `run` instead of `build` if using `packer.nvim`
-  build = ':TSUpdate',
-  -- prior or equal to:
-  commit = "310f0925ec64c7e54f3ee952679d285b13e5a735",
-  -- `requires` instead of `dependencies` if using `packer.nvim`
-  dependencies = { 'Hdoc1509/vim-map-side.nvim' },
-  config = function()
-    -- NOTE: register parser before installation
-    require("vim-map-side.tree-sitter").setup()
-
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "lua", -- required
-        "printf", -- optional
-        "vim", -- required
-        "vim_map_side", -- required
-      }
-    })
-  end,
-}
-```
-
-</details>
-
 #### `configs` module of old [`master`][nvim-ts-master] branch
 
 > [!IMPORTANT]
@@ -339,7 +302,6 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [printf]: https://github.com/tree-sitter-grammars/tree-sitter-printf
 [vim]: https://github.com/tree-sitter-grammars/tree-sitter-vim
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
-[nvim-ts-main-configs]: https://github.com/nvim-treesitter/nvim-treesitter/tree/310f0925ec64c7e54f3ee952679d285b13e5a735
 [nvim-ts-main-ensure-install]: https://github.com/nvim-treesitter/nvim-treesitter/tree/0bb981c87604200df6c8fb81e5a411101bdf93af#setup
 [nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
 [nodejs]: https://nodejs.org/en/download
