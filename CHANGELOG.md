@@ -1,5 +1,21 @@
 # vim-map-side.nvim
 
+## 0.2.0
+
+### Minor Changes
+
+- Add `maintainers` of parser ([#1](https://github.com/Hdoc1509/vim-map-side.nvim/pull/1))
+
+- Allow customization of `install_info` for parser ([#1](https://github.com/Hdoc1509/vim-map-side.nvim/pull/1))
+
+### Patch Changes
+
+- Add `tier` of parser ([#1](https://github.com/Hdoc1509/vim-map-side.nvim/pull/1))
+
+- Handle changes of predicate handler from Neovim 0.10 ([#1](https://github.com/Hdoc1509/vim-map-side.nvim/pull/1))
+
+- Handle changes of `nvim-treesitter` in `main` branch ([#1](https://github.com/Hdoc1509/vim-map-side.nvim/pull/1))
+
 ## 0.1.0
 
 ### Initial release
