@@ -22,11 +22,14 @@ require("lazy.minit").repro({
         },
       },
       config = function()
-        require("vim-map-side.tree-sitter").setup()
+        require("vim-map-side.tree-sitter").setup({
+          -- your options
+        })
 
         require("nvim-treesitter").install({
+          "lua",
+          "vim",
           "vim_map_side",
-          "yaml",
         })
 
         -- ensure directory for parsers and queries in `rtp` after first

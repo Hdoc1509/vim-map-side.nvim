@@ -24,13 +24,15 @@ require("lazy.minit").repro({
       config = function()
         require("vim-map-side.tree-sitter").setup({
           -- your options
+          from_grammar = vim.fn.has("nvim-0.11") == 0,
         })
 
         ---@diagnostic disable-next-line: missing-fields
         require("nvim-treesitter.configs").setup({
           ensure_installed = {
+            "lua",
+            "vim",
             "vim_map_side",
-            "yaml",
           },
           highlight = { enable = true },
         })
