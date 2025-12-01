@@ -155,7 +155,7 @@ Use `install` module instead:
   -- Version or commit of `tree-sitter-vim-map-side`.
   revision = nil,
   -- Branch of `tree-sitter-vim-map-side`.
-  branch = nil,
+  branch = "master",
   custom_fns = {
     -- custom functions with same parameters of `vim.keymap.set()`.
     keymap = {},

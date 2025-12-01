@@ -22,6 +22,8 @@ local M = {}
 ---@type VimMapSide.TS.Opts
 local default_opts = {
   url = "https://github.com/Hdoc1509/tree-sitter-vim-map-side",
+  -- TODO: remove `branch` option. Use `revision` as `branch` too.
+  branch = "master",
   custom_fns = { keymap = {}, modemap = {} },
 }
 
