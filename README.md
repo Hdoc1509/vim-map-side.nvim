@@ -189,8 +189,9 @@ These functions have the same parameters of `vim.keymap.set()` except the first:
 
 ## LSP configuration
 
-The `ts-query-ls` module exports an LSP configuration for `ts_query_ls` server
-in order to register the custom predicates used by this plugin.
+The `ts-query-ls` module exports an LSP configuration for
+[`ts_query_ls`][ts-query-ls] server in order to register the custom predicates
+used by this plugin.
 
 > [!NOTE]
 > This is only needed if you will use the predicates defined by this plugin in
@@ -309,6 +310,7 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
 [lspconfig]: (https://github.com/neovim/nvim-lspconfig)
 [vimhelp-map]: https://vimhelp.org/map.txt.html#map.txt
+[ts-query-ls]: https://github.com/ribru17/ts_query_ls
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 
 <!-- markdownlint-disable-file MD033 -->
