@@ -308,7 +308,7 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
 [nodejs]: https://nodejs.org/en/download
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
-[lspconfig]: (https://github.com/neovim/nvim-lspconfig)
+[lspconfig]: https://github.com/neovim/nvim-lspconfig
 [vimhelp-map]: https://vimhelp.org/map.txt.html#map.txt
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
