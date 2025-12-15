@@ -34,7 +34,7 @@ Installation examples for [`lazy.nvim`](https://github.com/folke/lazy.nvim) and
 [`packer.nvim`](https://github.com/wbthomason/packer.nvim):
 
 > [!IMPORTANT]
-> These snippets are for neovim >= 0.11.0
+> This snippet is for neovim >= 0.11.0
 
 ```lua
 {
