@@ -237,7 +237,7 @@ vim.lsp.config(
 vim.lsp.enable("ts_query_ls")
 ```
 
-### `<rtp>/lsp/ts_query_ls.lua` + neovim >= 0.11
+### `after/lsp/ts_query_ls.lua` + neovim >= 0.11
 
 <!-- TODO: need to check if it works correctlty -->
 
