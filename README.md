@@ -193,9 +193,16 @@ The `ts-query-ls` module exports an LSP configuration for
 [`ts_query_ls`][ts-query-ls] server in order to register the custom predicates
 used by this plugin.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This is only needed if you will use the predicates defined by this plugin in
-> your queries.
+> your queries and you have set the [`valid_predicates` setting for
+> `ts_query_ls`](https://github.com/ribru17/ts_query_ls#valid_predicates).
+
+---
+
+> [!NOTE]
+> You can check [my config for `ts_query_ls`][nvim-config-ts-query-ls] for
+> reference.
 
 ### [nvim-lspconfig][lspconfig] + neovim < 0.11
 
@@ -313,6 +320,7 @@ This plugin will follow changes of `tree-sitter-vim-map-side`:
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
 [lspconfig]: https://github.com/neovim/nvim-lspconfig
 [vimhelp-map]: https://vimhelp.org/map.txt.html#map.txt
+[nvim-config-ts-query-ls]: https://github.com/Hdoc1509/nvim-config/blob/master/lua/plugins/lsp/servers/ts_query_ls/init.lua
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 
