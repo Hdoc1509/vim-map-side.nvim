@@ -20,6 +20,7 @@ local function setup(opts)
     maintainers = { "@Hdoc1509" },
     -- NOTE: because grammar is not stable enough. changes are expected
     tier = 3,
+    filetype = "vms",
   }
 
   if ts_parsers.get_parser_configs ~= nil then
@@ -30,14 +31,16 @@ local function setup(opts)
   elseif ts_parsers.configs ~= nil then
     -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/692b051b09935653befdb8f7ba8afdb640adf17b
     ts_parsers.configs.vim_map_side = parser_info
-    -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/c17de5689045f75c6244462182ae3b4b62df02d9
+    vim.treesitter.language.register("vim_map_side", "vms")
   else
+    -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/c17de5689045f75c6244462182ae3b4b62df02d9
     vim.api.nvim_create_autocmd("User", {
       pattern = "TSUpdate",
       callback = function()
         require("nvim-treesitter.parsers").vim_map_side = parser_info
       end,
     })
+    vim.treesitter.language.register("vim_map_side", "vms")
   end
 end
 
