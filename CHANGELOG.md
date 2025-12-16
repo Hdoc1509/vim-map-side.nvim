@@ -1,5 +1,13 @@
 # vim-map-side.nvim
 
+## 0.2.1
+
+### Patch Changes
+
+- Register parser for `vms` filetype ([#2](https://github.com/Hdoc1509/vim-map-side.nvim/pull/2))
+
+- Use `extends` modeline instead of `inherits` to load optional queries ([#2](https://github.com/Hdoc1509/vim-map-side.nvim/pull/2))
+
 ## 0.2.0
 
 ### Minor Changes
